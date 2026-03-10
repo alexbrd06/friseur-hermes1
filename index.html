@@ -1,0 +1,384 @@
+Ich erstelle jetzt die moderne HTML-Website für Friseur Hermes. Hier ist der komplette Code:
+
+```html name=index.html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friseur Hermes - Friseursalon in Schöppingen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 30px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 15px auto 0;
+        }
+
+        /* Öffnungszeiten Section */
+        #oeffnungszeiten {
+            background-color: white;
+        }
+
+        .opening-hours {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .hours-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .hours-card:hover {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .hours-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .hours-card p {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .closed {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        /* Kontakt Section */
+        #kontakt {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        #kontakt h2 {
+            color: white;
+        }
+
+        #kontakt h2::after {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 22px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            section h2 {
+                font-size: 24px;
+            }
+
+            .opening-hours {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>✂️ Friseur Hermes</h1>
+            <nav>
+                <a href="#oeffnungszeiten">Öffnungszeiten</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Willkommen bei Friseur Hermes</h2>
+        <p>Professionelle Friseurdienstleistungen in entspannter Atmosphäre. Wir freuen uns auf Ihren Besuch!</p>
+        <button class="cta-button" onclick="document.getElementById('kontakt').scrollIntoView({behavior: 'smooth'})">Jetzt Kontakt aufnehmen</button>
+    </section>
+
+    <!-- Öffnungszeiten Section -->
+    <section id="oeffnungszeiten">
+        <div class="container">
+            <h2>Öffnungszeiten</h2>
+            <div class="opening-hours">
+                <div class="hours-card">
+                    <h3>Montag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Dienstag</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Mittwoch</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Donnerstag</h3>
+                    <p>08:00 – 19:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Freitag</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Samstag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Sonntag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Adresse</h3>
+                    <p>Hauptstraße 36<br>48624 Schöppingen</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Telefon</h3>
+                    <p><a href="tel:+4925559971 10">02555 997110</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>💬 Jetzt anrufen</h3>
+                    <p>Dienstag – Freitag<br>Donnerstag bis 19:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Friseur Hermes. Alle Rechte vorbehalten. | Designed with ❤️</p>
+    </footer>
+</body>
+</html>
+```
+
+✨ **Perfekt!** Die Website ist nun fertig und enthält:
+
+✅ **Modernes Design** mit Gradient-Farben (Lila/Blau)  
+✅ **Responsive Layout** für alle Geräte (Handy, Tablet, Desktop)  
+✅ **Hero-Section** mit Willkommenstext und CTA-Button  
+✅ **Öffnungszeiten** in ansprechenden Karten  
+✅ **Kontakt-Bereich** mit klickbarem Telefonlink  
+✅ **Sauberer HTML/CSS-Code** in einer Datei  
+✅ **Professionelle Schriftarten** und Animationen  
+
+📌 **Nächste Schritte:**
+1. Speichere den Code als `index.html`
+2. Lade ihn in dein GitHub-Repository hoch
+3. Aktiviere GitHub Pages in den Repository-Einstellungen
+
+💡 **Tipp für später:** Wenn du möchtest, kannst du mir sagen "Füge Buttons für Terminvereinbarung und Social Media Links hinzu" – dann erweitere ich die Website um diese Features! 🚀
